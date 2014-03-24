@@ -2,26 +2,26 @@ module.exports = function(grunt) {
 
 	'use strict';
 
-	var appPath = 'src/app.js',
-		testPath = 'src/*Spec.js',
-		config = {};
+	var config = {};
 
 	config.jasmine = {
-		pivotal: {
-			src: appPath, 
-			options: {
-				specs: testPath
-			}
+		src: [
+			'src/*.js',
+			'!src/*Spec.js'
+		],
+		options: {
+			vendor: [],
+			specs: 'src/*Spec.js'
 		}
 	};
 	config.jshint = {
-		all: [testPath, appPath],
+		all: ['src/*.js'],
 		options: {
 			curly: true
 		}
 	};
 	config.watch = {
-		files: [testPath, appPath], 
+		files: 'src/*.js', 
 		tasks: ['jshint','jasmine']
 	};
 
