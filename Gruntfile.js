@@ -22,7 +22,10 @@ module.exports = function(grunt) {
 	};
 	config.watch = {
 		files: 'src/*.js', 
-		tasks: ['jshint','jasmine']
+		tasks: ['jshint','jasmine'],
+		options: {
+			livereload: true // uses default port 35729
+		}
 	};
 
 	grunt.initConfig(config);
